@@ -85,8 +85,9 @@ inner gopuram leading into the courtyard with the main temple at its far end.
 
 | File | Size (mm) | Triangles |
 |---|---|---|
-| `brihadisvara_exterior.stl` | 242.79 × 123.92 × 67.04 | 15 918 |
-| `brihadisvara_cutaway.stl` | 227.47 × 51.22 × 205.75 | 9 763 |
+| `brihadisvara_exterior.stl` | 242.79 × 123.92 × 67.04 | 15 834 |
+| `brihadisvara_cutaway.stl` | 227.47 × 51.22 × 205.75 | 7 355 |
+| `brihadisvara_cutaway_roof.stl` (lift-off roof) | 140.94 × 24.53 × 11.56 | 190 |
 | `MOD_01_Foundation_West.stl` | 101.00 × 123.92 × 1.60 | 24 |
 | `MOD_02_Foundation_East.stl` | 141.79 × 123.92 × 1.60 | 24 |
 | `MOD_03_Temple_Block.stl` | 72.79 × 32.78 × 65.84 | 9 934 |

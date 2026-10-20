@@ -1,43 +1,8 @@
 {
-  "generated_at": "2026-10-20T04:18:53+00:00",
+  "generated_at": "2026-10-20T04:21:46+00:00",
   "blender": "5.2.0 LTS",
-  "duration_seconds": 21.9,
+  "duration_seconds": 0.2,
   "results": {
-    "exterior": {
-      "variant": "exterior",
-      "scale": 1.0,
-      "blend": "src/models/blender/brihadisvara_exterior.blend",
-      "stl": "src/models/stl/brihadisvara_exterior.stl",
-      "previews": [
-        "src/previews/brihadisvara_exterior_front_elevation.png",
-        "src/previews/brihadisvara_exterior_three_quarter.png",
-        "src/previews/brihadisvara_exterior_side_elevation.png",
-        "src/previews/brihadisvara_exterior_aerial.png"
-      ],
-      "stats": {
-        "objects": 16,
-        "vertices": 10335,
-        "polygons": 7925
-      }
-    },
-    "cutaway": {
-      "variant": "cutaway",
-      "scale": 3.125,
-      "blend": "src/models/blender/brihadisvara_cutaway.blend",
-      "stl": "src/models/stl/brihadisvara_cutaway.stl",
-      "removable_roof": "src/models/stl/brihadisvara_cutaway_roof.stl",
-      "previews": [
-        "src/previews/brihadisvara_cutaway_front_elevation.png",
-        "src/previews/brihadisvara_cutaway_three_quarter.png",
-        "src/previews/brihadisvara_cutaway_side_elevation.png",
-        "src/previews/brihadisvara_cutaway_aerial.png"
-      ],
-      "stats": {
-        "objects": 10,
-        "vertices": 3500,
-        "polygons": 2922
-      }
-    },
     "modular": {
       "variant": "modular",
       "scale": 1.0,

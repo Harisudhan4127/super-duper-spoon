@@ -96,6 +96,94 @@ def stl_metrics(path: Path) -> dict:
     }
 
 
+def read_stl_triangles(path: Path) -> list[tuple[tuple[float, float, float], ...]]:
+    """Return the triangles of a binary STL."""
+    with path.open("rb") as handle:
+        header = handle.read(84)
+        count = struct.unpack("<I", header[80:84])[0]
+        data = handle.read(50 * count)
+    triangles = []
+    for index in range(count):
+        values = struct.unpack("<12f", data[index * 50 : index * 50 + 48])
+        triangles.append(
+            (
+                (values[3], values[4], values[5]),
+                (values[6], values[7], values[8]),
+                (values[9], values[10], values[11]),
+            )
+        )
+    return triangles
+
+
+CONTENT_TYPES = """<?xml version="1.0" encoding="UTF-8"?>
+<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
+ <Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>
+ <Default Extension="model" ContentType="application/vnd.ms-package.3dmanufacturing-3dmodel+xml"/>
+</Types>
+"""
+
+RELS = """<?xml version="1.0" encoding="UTF-8"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+ <Relationship Target="/3D/3dmodel.model" Id="rel0" Type="http://schemas.microsoft.com/3dmanufacturing/2013/01/3dmodel"/>
+</Relationships>
+"""
+
+
+def write_3mf(path: Path, parts: list[tuple[str, Path]]) -> dict:
+    """Write a minimal but valid 3MF file from a list of STL parts.
+
+    Blender 5.2 in this environment does not expose a working 3MF exporter, so
+    the file is written directly: the 3MF core specification only requires a
+    zip container with a model part, millimetre units and one build item per
+    object.  The parts keep their world coordinates, so the 3MF shows the
+    complete assembly.
+    """
+    import zipfile
+
+    objects_xml = []
+    build_xml = []
+    for index, (name, stl_path) in enumerate(parts, start=1):
+        triangles = read_stl_triangles(stl_path)
+        vertex_map: dict[tuple[int, int, int], int] = {}
+        vertices = []
+        faces = []
+        for tri in triangles:
+            indices = []
+            for vertex in tri:
+                key = (round(vertex[0], 4), round(vertex[1], 4), round(vertex[2], 4))
+                if key not in vertex_map:
+                    vertex_map[key] = len(vertices)
+                    vertices.append(vertex)
+                indices.append(vertex_map[key])
+            faces.append(indices)
+        vertex_xml = "".join(
+            f'<vertex x="{v[0]:.4f}" y="{v[1]:.4f}" z="{v[2]:.4f}"/>' for v in vertices
+        )
+        face_xml = "".join(f'<triangle v1="{f[0]}" v2="{f[1]}" v3="{f[2]}"/>' for f in faces)
+        objects_xml.append(
+            f'  <object id="{index}" name="{name}" type="model">'
+            f"<mesh><vertices>{vertex_xml}</vertices><triangles>{face_xml}</triangles></mesh>"
+            f"</object>"
+        )
+        build_xml.append(f'  <item objectid="{index}"/>')
+
+    model_xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<model unit="millimeter" xml:lang="en-US" '
+        'xmlns="http://schemas.microsoft.com/3dmanufacturing/core/2015/02">\n'
+        " <metadata name=\"Application\">super-duper-spoon export_models.py</metadata>\n"
+        " <resources>\n" + "\n".join(objects_xml) + "\n </resources>\n"
+        " <build>\n" + "\n".join(build_xml) + "\n </build>\n</model>\n"
+    )
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as archive:
+        archive.writestr("[Content_Types].xml", CONTENT_TYPES)
+        archive.writestr("_rels/.rels", RELS)
+        archive.writestr("3D/3dmodel.model", model_xml)
+    return {"path": str(path.relative_to(PROJECT_ROOT)), "bytes": path.stat().st_size}
+
+
 def validation_status() -> dict[str, str]:
     path = DOC_DIR / "validation_results.json"
     if not path.exists():
@@ -175,6 +263,14 @@ def main(argv: list[str] | None = None) -> int:
         {"path": str(path.relative_to(PROJECT_ROOT)), "bytes": path.stat().st_size}
         for path in step_files
     ]
+
+    # 3MF export of the modular set (Blender's own 3MF writer is not usable
+    # in this build, so the file is written directly)
+    module_dir = STL_DIR / "modules"
+    module_files = sorted(module_dir.glob("*.stl")) if module_dir.exists() else []
+    if module_files:
+        threemf_path = PROJECT_ROOT / "src" / "models" / "3mf" / "brihadisvara_modular.3mf"
+        manifest["threemf"] = write_3mf(threemf_path, [(p.stem, p) for p in module_files])
     previews = sorted(PREVIEW_DIR.glob("*.png"))
     manifest["previews"] = [
         {"path": str(path.relative_to(PROJECT_ROOT)), "bytes": path.stat().st_size}

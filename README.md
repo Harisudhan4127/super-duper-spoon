@@ -19,7 +19,9 @@ cited to a published source or explicitly flagged as an interpretation in
 |---|---|
 | Exterior master model (1:1000) | `src/models/blender/brihadisvara_exterior.blend`, `src/models/stl/brihadisvara_exterior.stl` |
 | Cut-away core model (1:320) with the connected interior | `src/models/blender/brihadisvara_cutaway.blend`, `src/models/stl/brihadisvara_cutaway.stl` |
+| Lift-off roof section of the cut-away model | `src/models/stl/brihadisvara_cutaway_roof.stl` |
 | Modular print set (7 parts) | `src/models/stl/modules/` |
+| 3MF assembly of the modular set | `src/models/3mf/brihadisvara_modular.3mf` |
 | FreeCAD engineering project | `src/models/freecad/brihadisvara_engineering.FCStd` |
 | STEP engineering components | `src/models/step/*.step` |
 | Rendered previews (8 views) | `src/previews/` |
@@ -31,8 +33,8 @@ Measured sizes of the exported meshes:
 
 | Model | Size (mm) | Triangles |
 |---|---|---|
-| Exterior (whole compound) | 242.8 × 123.9 × 67.0 | 15 918 |
-| Cut-away core (sanctum → Nandi hall) | 227.5 × 51.2 × 205.8 | 9 763 |
+| Exterior (whole compound) | 242.8 × 123.9 × 67.0 | 15 834 |
+| Cut-away core (sanctum → Nandi hall) | 227.5 × 51.2 × 205.8 | 7 355 |
 | Foundation west / east plate | 101.0 × 123.9 × 1.6 / 141.8 × 123.9 × 1.6 | 24 / 24 |
 | Temple block | 72.8 × 32.8 × 65.8 | 9 934 |
 | Gopurams | 88.5 × 14.0 × 31.2 | 1 400 |
@@ -74,7 +76,7 @@ super-duper-spoon/
 │   │   ├── freecad/         # .FCStd engineering project
 │   │   ├── stl/             # print-ready meshes (+ modules/)
 │   │   ├── step/            # STEP engineering components
-│   │   └── 3mf/             # reserved for a future 3MF export
+│   │   └── 3mf/             # 3MF assembly of the modular set
 │   ├── previews/            # rendered architectural views
 │   ├── documentation/       # analysis, dimensions, print settings, reports
 │   └── tests/               # reserved

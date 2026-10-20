@@ -136,6 +136,21 @@ class TestGeneratedModels(unittest.TestCase):
             self.assertGreater(path.stat().st_size, 500, f"{path.name} looks empty")
             self.assertIn("ISO-10303-21", path.read_text(encoding="utf-8", errors="ignore")[:2000])
 
+    def test_threemf_assembly_is_valid(self):
+        path = MODEL_DIR / "3mf" / "brihadisvara_modular.3mf"
+        if not path.exists():
+            self.skipTest("3MF export not generated yet")
+        import zipfile
+
+        with zipfile.ZipFile(path) as archive:
+            names = archive.namelist()
+            self.assertIn("3D/3dmodel.model", names)
+            self.assertIn("[Content_Types].xml", names)
+            model = archive.read("3D/3dmodel.model").decode("utf-8")
+        self.assertIn('unit="millimeter"', model)
+        self.assertIn("<object ", model)
+        self.assertIn("<build>", model)
+
     def test_previews_exist(self):
         preview_dir = PROJECT_ROOT / "src" / "previews"
         images = sorted(preview_dir.glob("*.png"))

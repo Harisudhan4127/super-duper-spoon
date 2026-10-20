@@ -26,9 +26,15 @@ All notable changes to the Brihadisvara Temple 3-D model project.
 * `feat:` FreeCAD engineering components (`src/scripts/cad/generate_cad.py`):
   spreadsheet-driven foundation plates, alignment pin/socket, roof
   spigot/socket, wall key and fit-test coupon, exported as STEP.
+* `build:` 3MF export of the modular assembly written directly by
+  `export_models.py` (Blender 5.2 in this environment does not expose a
+  usable 3MF writer), millimetre units, one object per module.
 * `build:` export pipeline (`export_models.py`) and mesh validation
   (`validate_meshes.py`) with a generated `validation_report.md`.
-* `tests:` 39 unit and integration tests under `tests/`.
+* `tests:` 40 unit and integration tests under `tests/`.
+* `feat:` the cut-away model's hall roofs are a separate, lift-off part
+  (`src/models/stl/brihadisvara_cutaway_roof.stl`) located by the FreeCAD
+  spigot and socket.
 
 ### Notable engineering decisions
 * Master scale 1:1000 (1 mm of model = 1 m of building) for the complete
