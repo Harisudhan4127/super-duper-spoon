@@ -732,6 +732,42 @@ class TempleBuilder:
                 self.m(z + corn_h + 2 * course_h), self.m(z + corn_h + 2 * course_h + course_h),
             )
 
+    def build_connecting_passage(self) -> MeshBuilder:
+        """The short covered passage that links the mukha-mandapa to the Nandi hall.
+
+        Without it the sequence of halls would be a row of separate buildings;
+        with it the interior of the temple is a single connected route:
+        Nandi hall -> mukha-mandapa -> maha-mandapa -> antrala -> ambulatory
+        passage -> sanctum.
+        """
+        mb = MeshBuilder()
+        p = self.p
+        plan = self.plan
+        x0 = plan["mukha_x1"]
+        x1 = plan["nandi_x0"]
+        half_w = 3.0
+        wall_t = p.ambulatory_wall_thickness
+        z0 = p.platform_height
+        z1 = z0 + 6.4
+
+        # floor
+        mb.add_box(self.m(x0), self.m(-half_w), self.m(x1), self.m(half_w), self.m(z0 - 0.1), self.m(z0 + 0.05))
+        # side walls
+        for sign in (-1, 1):
+            self.wall(mb, "x", x0, x1, wall_t, z0, z1, offset=sign * (half_w - wall_t / 2))
+        # flat roof with a cornice
+        corn_h = self.amp_m(p.cornice_height, 0.9)
+        corn_pr = self.amp_m(p.cornice_projection, 0.9)
+        mb.add_box(
+            self.m(x0 - corn_pr), self.m(-half_w - corn_pr), self.m(x1 + corn_pr), self.m(half_w + corn_pr),
+            self.m(z1), self.m(z1 + corn_h),
+        )
+        mb.add_box(
+            self.m(x0), self.m(-half_w), self.m(x1), self.m(half_w),
+            self.m(z1 + corn_h), self.m(z1 + corn_h + 0.7),
+        )
+        return mb
+
     def build_hall_roofs(self) -> MeshBuilder:
         """The removable roof section of the three halls.
 

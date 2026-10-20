@@ -33,10 +33,10 @@ Measured sizes of the exported meshes:
 
 | Model | Size (mm) | Triangles |
 |---|---|---|
-| Exterior (whole compound) | 242.8 × 123.9 × 67.0 | 15 834 |
-| Cut-away core (sanctum → Nandi hall) | 227.5 × 51.2 × 205.8 | 7 355 |
+| Exterior (whole compound) | 242.8 × 123.9 × 67.0 | 15 894 |
+| Cut-away core (sanctum → Nandi hall) | 227.5 × 51.2 × 205.8 | 7 425 |
 | Foundation west / east plate | 101.0 × 123.9 × 1.6 / 141.8 × 123.9 × 1.6 | 24 / 24 |
-| Temple block | 72.8 × 32.8 × 65.8 | 9 934 |
+| Temple block | 72.8 × 32.8 × 65.8 | 9 994 |
 | Gopurams | 88.5 × 14.0 × 31.2 | 1 400 |
 | Compound wall | 240.8 × 121.9 × 3.5 | 60 |
 | Prakara | 174.2 × 80.8 × 4.8 | 4 176 |

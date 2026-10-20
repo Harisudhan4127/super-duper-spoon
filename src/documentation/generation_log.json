@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T04:21:46+00:00",
+  "generated_at": "2026-10-20T04:24:30+00:00",
   "blender": "5.2.0 LTS",
   "duration_seconds": 0.2,
   "results": {
@@ -17,9 +17,9 @@
         "src/models/stl/modules/MOD_07_Courtyard_Shrines.stl"
       ],
       "stats": {
-        "objects": 15,
-        "vertices": 10319,
-        "polygons": 7913
+        "objects": 16,
+        "vertices": 10359,
+        "polygons": 7943
       }
     }
   }

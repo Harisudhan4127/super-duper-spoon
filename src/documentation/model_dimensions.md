@@ -71,6 +71,7 @@ the cut-away model is provably the same building as the exterior model.
 | Antrala (vestibule) | +5.70 | +8.30 |
 | Maha-mandapa | +8.30 | +26.10 |
 | Mukha-mandapa | +26.10 | +37.20 |
+| Connecting passage (mukha-mandapa → Nandi hall) | +37.20 | +40.70 |
 | Nandi mandapa | +40.70 | +52.70 |
 | Nandi bull (centre) | +48.53 | +54.47 (5.94 m long) |
 | Inner gopuram (Rajarajan tiruvasal) | +97.00 | +103.00 |
@@ -85,12 +86,12 @@ inner gopuram leading into the courtyard with the main temple at its far end.
 
 | File | Size (mm) | Triangles |
 |---|---|---|
-| `brihadisvara_exterior.stl` | 242.79 × 123.92 × 67.04 | 15 834 |
-| `brihadisvara_cutaway.stl` | 227.47 × 51.22 × 205.75 | 7 355 |
-| `brihadisvara_cutaway_roof.stl` (lift-off roof) | 140.94 × 24.53 × 11.56 | 190 |
+| `brihadisvara_exterior.stl` | 242.79 × 123.92 × 67.04 | 15 894 |
+| `brihadisvara_cutaway.stl` | 227.47 × 51.22 × 205.75 | 7 425 |
+| `brihadisvara_cutaway_roof.stl` | 140.94 × 24.53 × 11.56 | 190 |
 | `MOD_01_Foundation_West.stl` | 101.00 × 123.92 × 1.60 | 24 |
 | `MOD_02_Foundation_East.stl` | 141.79 × 123.92 × 1.60 | 24 |
-| `MOD_03_Temple_Block.stl` | 72.79 × 32.78 × 65.84 | 9 934 |
+| `MOD_03_Temple_Block.stl` | 72.79 × 32.78 × 65.84 | 9 994 |
 | `MOD_04_Gopurams.stl` | 88.50 × 14.00 × 31.20 | 1 400 |
 | `MOD_05_Compound_Wall.stl` | 240.79 × 121.92 × 3.50 | 60 |
 | `MOD_06_Prakara.stl` | 174.23 × 80.80 × 4.80 | 4 176 |

@@ -32,6 +32,10 @@ All notable changes to the Brihadisvara Temple 3-D model project.
 * `build:` export pipeline (`export_models.py`) and mesh validation
   (`validate_meshes.py`) with a generated `validation_report.md`.
 * `tests:` 40 unit and integration tests under `tests/`.
+* `feat:` the covered connecting passage that links the mukha-mandapa to the
+  Nandi hall, so that the interior of the temple is a single connected route
+  (Nandi hall → mukha-mandapa → maha-mandapa → antrala → ambulatory passage
+  → sanctum).
 * `feat:` the cut-away model's hall roofs are a separate, lift-off part
   (`src/models/stl/brihadisvara_cutaway_roof.stl`) located by the FreeCAD
   spigot and socket.

@@ -1,6 +1,6 @@
 # Mesh Validation Report
 
-Generated: 2026-10-20T04:21:47+00:00
+Generated: 2026-10-20T04:24:31+00:00
 
 ## Tooling actually used
 
@@ -13,12 +13,12 @@ Generated: 2026-10-20T04:21:47+00:00
 
 | Model | Status | Triangles | Size X x Y x Z (mm) | Fits bed | Degenerate | Open edges |
 |---|---|---|---|---|---|---|
-| `brihadisvara_cutaway.stl` | warn | 7355 | 227.5 x 51.2 x 205.8 | yes | 50 | 62 |
+| `brihadisvara_cutaway.stl` | warn | 7425 | 227.5 x 51.2 x 205.8 | yes | 50 | 62 |
 | `brihadisvara_cutaway_roof.stl` | pass | 190 | 140.9 x 24.5 x 11.6 | yes | 0 | 0 |
-| `brihadisvara_exterior.stl` | pass | 15834 | 242.8 x 123.9 x 67.0 | yes | 0 | 76 |
+| `brihadisvara_exterior.stl` | pass | 15894 | 242.8 x 123.9 x 67.0 | yes | 0 | 76 |
 | `MOD_01_Foundation_West.stl` | pass | 24 | 101.0 x 123.9 x 1.6 | yes | 0 | 0 |
 | `MOD_02_Foundation_East.stl` | pass | 24 | 141.8 x 123.9 x 1.6 | yes | 0 | 0 |
-| `MOD_03_Temple_Block.stl` | pass | 9934 | 72.8 x 32.8 x 65.8 | yes | 0 | 28 |
+| `MOD_03_Temple_Block.stl` | pass | 9994 | 72.8 x 32.8 x 65.8 | yes | 0 | 28 |
 | `MOD_04_Gopurams.stl` | pass | 1400 | 88.5 x 14.0 x 31.2 | yes | 0 | 24 |
 | `MOD_05_Compound_Wall.stl` | pass | 60 | 240.8 x 121.9 x 3.5 | yes | 0 | 0 |
 | `MOD_06_Prakara.stl` | pass | 4176 | 174.2 x 80.8 x 4.8 | yes | 0 | 0 |
@@ -29,14 +29,14 @@ Generated: 2026-10-20T04:21:47+00:00
 ### `brihadisvara_cutaway.stl`
 
 * Path: `src/models/stl/brihadisvara_cutaway.stl`
-* File size: 367834 bytes
+* File size: 371334 bytes
 * Bounding box (min x, min y, min z, max x, max y, max z): [-51.219, 0.0, 0.0, 176.25, 51.219, 205.75] mm
 * Bounding size: [227.469, 51.219, 205.75] mm
-* Triangles: 7355
+* Triangles: 7425
 * Degenerate (zero area) triangles: 50
-* Duplicate vertices (after welding): 18617
+* Duplicate vertices (after welding): 18794
 * Open edges: 62
-* Non-manifold edges (>2 faces): 1036
+* Non-manifold edges (>2 faces): 1037
 * Connected components: not evaluated
 * Watertight: not evaluated
 * Self intersections: not evaluated
@@ -65,12 +65,12 @@ Generated: 2026-10-20T04:21:47+00:00
 ### `brihadisvara_exterior.stl`
 
 * Path: `src/models/stl/brihadisvara_exterior.stl`
-* File size: 791784 bytes
+* File size: 794784 bytes
 * Bounding box (min x, min y, min z, max x, max y, max z): [-46.0, -61.96, -1.2, 196.79, 61.96, 65.84] mm
 * Bounding size: [242.79, 123.92, 67.04] mm
-* Triangles: 15834
+* Triangles: 15894
 * Degenerate (zero area) triangles: 0
-* Duplicate vertices (after welding): 37753
+* Duplicate vertices (after welding): 37893
 * Open edges: 76
 * Non-manifold edges (>2 faces): 1135
 * Connected components: not evaluated
@@ -117,12 +117,12 @@ Generated: 2026-10-20T04:21:47+00:00
 ### `MOD_03_Temple_Block.stl`
 
 * Path: `src/models/stl/modules/MOD_03_Temple_Block.stl`
-* File size: 496784 bytes
+* File size: 499784 bytes
 * Bounding box (min x, min y, min z, max x, max y, max z): [-16.39, -16.39, 0.0, 56.4, 16.39, 65.84] mm
 * Bounding size: [72.79, 32.78, 65.84] mm
-* Triangles: 9934
+* Triangles: 9994
 * Degenerate (zero area) triangles: 0
-* Duplicate vertices (after welding): 23917
+* Duplicate vertices (after welding): 24057
 * Open edges: 28
 * Non-manifold edges (>2 faces): 1128
 * Connected components: not evaluated
