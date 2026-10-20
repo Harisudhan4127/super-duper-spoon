@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-10-20T04:02:10+00:00",
+  "freecad_version": "1.1.4",
+  "document": "src/models/freecad/brihadisvara_engineering.FCStd",
+  "step_exports": [
+    "src/models/step/foundation_plates.step",
+    "src/models/step/alignment_hardware.step",
+    "src/models/step/roof_interface.step",
+    "src/models/step/wall_key.step",
+    "src/models/step/fit_test_coupon.step",
+    "src/models/step/brihadisvara_engineering_all.step"
+  ],
+  "objects": 34,
+  "invalid_solids": [],
+  "parameters": {
+    "scale_mm_per_metre": 1.0,
+    "clearance_per_side_mm": 0.3,
+    "pin_diameter_mm": 2.0
+  }
+}
