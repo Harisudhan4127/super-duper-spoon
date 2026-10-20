@@ -24,6 +24,7 @@ cited to a published source or explicitly flagged as an interpretation in
 | 3MF assembly of the modular set | `src/models/3mf/brihadisvara_modular.3mf` |
 | FreeCAD engineering project | `src/models/freecad/brihadisvara_engineering.FCStd` |
 | STEP engineering components | `src/models/step/*.step` |
+| Printable hardware and fit-test coupon | `src/models/stl/hardware/` |
 | Rendered previews (8 views) | `src/previews/` |
 | Reference photographs + attribution | `src/references/images/`, `image_manifest.json`, `sources.md` |
 | Documentation | `src/documentation/` |

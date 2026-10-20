@@ -338,6 +338,7 @@ def main(argv: list[str] | None = None) -> int:
     targets = sorted(stl_dir.glob("*.stl"))
     if args.include_modules:
         targets += sorted((stl_dir / "modules").glob("*.stl")) if (stl_dir / "modules").exists() else []
+        targets += sorted((stl_dir / "hardware").glob("*.stl")) if (stl_dir / "hardware").exists() else []
 
     reports: list[MeshReport] = []
     for path in targets:

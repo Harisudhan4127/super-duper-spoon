@@ -287,6 +287,33 @@ def _build(log) -> int:
     export_step(all_objects, combined)
     exported.append(str(combined.relative_to(PROJECT_ROOT)))
 
+    # the printable hardware is also written as STL so that the fit-test
+    # coupon can be sliced without a CAD tool
+    import Mesh
+    import MeshPart
+
+    hardware_dir = PROJECT_ROOT / "src" / "models" / "stl" / "hardware"
+    hardware_dir.mkdir(parents=True, exist_ok=True)
+    for name, objects in (
+        ("FITTEST_Coupon", groups["Fit_Test_Coupon"]),
+        ("HARDWARE_Alignment_Pin_Socket", groups["Alignment_Hardware"]),
+        ("HARDWARE_Roof_Spigot_Socket", groups["Roof_Interface"]),
+        ("HARDWARE_Wall_Key", groups["Wall_Key"]),
+    ):
+        mesh = Mesh.Mesh()
+        for obj in objects:
+            mesh.addMesh(
+                MeshPart.meshFromShape(
+                    Shape=obj.Shape,
+                    LinearDeflection=0.05,
+                    AngularDeflection=0.15,
+                    Relative=False,
+                )
+            )
+        path = hardware_dir / f"{name}.stl"
+        mesh.write(str(path))
+        exported.append(str(path.relative_to(PROJECT_ROOT)))
+
     document.recompute()
     fcstd_path = FCSTD_DIR / "brihadisvara_engineering.FCStd"
     document.saveAs(str(fcstd_path))

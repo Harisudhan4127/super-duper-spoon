@@ -1,6 +1,6 @@
 # Mesh Validation Report
 
-Generated: 2026-10-20T04:24:31+00:00
+Generated: 2026-10-20T04:25:54+00:00
 
 ## Tooling actually used
 
@@ -23,6 +23,10 @@ Generated: 2026-10-20T04:24:31+00:00
 | `MOD_05_Compound_Wall.stl` | pass | 60 | 240.8 x 121.9 x 3.5 | yes | 0 | 0 |
 | `MOD_06_Prakara.stl` | pass | 4176 | 174.2 x 80.8 x 4.8 | yes | 0 | 0 |
 | `MOD_07_Courtyard_Shrines.stl` | pass | 240 | 8.0 x 35.5 x 9.0 | yes | 0 | 24 |
+| `FITTEST_Coupon.stl` | pass | 680 | 20.0 x 20.0 x 6.0 | yes | 0 | 0 |
+| `HARDWARE_Alignment_Pin_Socket.stl` | pass | 1340 | 5.0 x 5.0 x 7.0 | yes | 0 | 0 |
+| `HARDWARE_Roof_Spigot_Socket.stl` | pass | 1004 | 6.6 x 6.6 x 3.3 | yes | 0 | 0 |
+| `HARDWARE_Wall_Key.stl` | pass | 12 | 8.0 x 4.0 x 2.6 | yes | 0 | 0 |
 
 ## Detailed results
 
@@ -201,6 +205,74 @@ Generated: 2026-10-20T04:24:31+00:00
 * Fits the assumed build volume: True
 * Flat contact base: True
 * Note: 24 open edges (expected for assemblies and sectioned models)
+
+### `FITTEST_Coupon.stl`
+
+* Path: `src/models/stl/hardware/FITTEST_Coupon.stl`
+* File size: 34084 bytes
+* Bounding box (min x, min y, min z, max x, max y, max z): [0.0, 0.0, 0.0, 20.0, 20.0, 6.0] mm
+* Bounding size: [20.0, 20.0, 6.0] mm
+* Triangles: 680
+* Degenerate (zero area) triangles: 0
+* Duplicate vertices (after welding): 1696
+* Open edges: 0
+* Non-manifold edges (>2 faces): 0
+* Connected components: not evaluated
+* Watertight: not evaluated
+* Self intersections: not evaluated
+* Fits the assumed build volume: True
+* Flat contact base: True
+
+### `HARDWARE_Alignment_Pin_Socket.stl`
+
+* Path: `src/models/stl/hardware/HARDWARE_Alignment_Pin_Socket.stl`
+* File size: 67084 bytes
+* Bounding box (min x, min y, min z, max x, max y, max z): [-2.5, -2.5, 0.0, 2.5, 2.5, 7.0] mm
+* Bounding size: [5.0, 5.0, 7.0] mm
+* Triangles: 1340
+* Degenerate (zero area) triangles: 0
+* Duplicate vertices (after welding): 3348
+* Open edges: 0
+* Non-manifold edges (>2 faces): 0
+* Connected components: not evaluated
+* Watertight: not evaluated
+* Self intersections: not evaluated
+* Fits the assumed build volume: True
+* Flat contact base: True
+
+### `HARDWARE_Roof_Spigot_Socket.stl`
+
+* Path: `src/models/stl/hardware/HARDWARE_Roof_Spigot_Socket.stl`
+* File size: 50284 bytes
+* Bounding box (min x, min y, min z, max x, max y, max z): [-3.3, -3.3, 0.0, 3.3, 3.3, 3.3] mm
+* Bounding size: [6.6, 6.6, 3.3] mm
+* Triangles: 1004
+* Degenerate (zero area) triangles: 0
+* Duplicate vertices (after welding): 2592
+* Open edges: 0
+* Non-manifold edges (>2 faces): 84
+* Connected components: not evaluated
+* Watertight: not evaluated
+* Self intersections: not evaluated
+* Fits the assumed build volume: True
+* Flat contact base: True
+
+### `HARDWARE_Wall_Key.stl`
+
+* Path: `src/models/stl/hardware/HARDWARE_Wall_Key.stl`
+* File size: 684 bytes
+* Bounding box (min x, min y, min z, max x, max y, max z): [0.0, 0.0, 0.0, 8.0, 4.0, 2.6] mm
+* Bounding size: [8.0, 4.0, 2.6] mm
+* Triangles: 12
+* Degenerate (zero area) triangles: 0
+* Duplicate vertices (after welding): 28
+* Open edges: 0
+* Non-manifold edges (>2 faces): 0
+* Connected components: not evaluated
+* Watertight: not evaluated
+* Self intersections: not evaluated
+* Fits the assumed build volume: True
+* Flat contact base: True
 
 ## Additional results
 

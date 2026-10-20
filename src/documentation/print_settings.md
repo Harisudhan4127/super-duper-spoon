@@ -100,7 +100,9 @@ The same geometry is valid for SLA/MSLA:
 
 ## 7. Print order
 
-1. `Fit_Test_Coupon` — check the clearance, then set the final clearance.
+1. `FITTEST_Coupon` (`src/models/stl/hardware/FITTEST_Coupon.stl`, 20 × 20 × 6 mm
+   with a ⌀2.2 mm hole and a loose ⌀2.0 mm dowel) — check the clearance, then
+   set the final clearance and re-export the STEP and STL hardware.
 2. `MOD_01` and `MOD_02` — the foundation plates (flat, no supports).
 3. `MOD_06` — the prakara (flat).
 4. `MOD_05` — the compound wall (flat).

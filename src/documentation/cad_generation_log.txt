@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T04:02:10+00:00",
+  "generated_at": "2026-10-20T04:25:33+00:00",
   "freecad_version": "1.1.4",
   "document": "src/models/freecad/brihadisvara_engineering.FCStd",
   "step_exports": [
@@ -8,7 +8,11 @@
     "src/models/step/roof_interface.step",
     "src/models/step/wall_key.step",
     "src/models/step/fit_test_coupon.step",
-    "src/models/step/brihadisvara_engineering_all.step"
+    "src/models/step/brihadisvara_engineering_all.step",
+    "src/models/stl/hardware/FITTEST_Coupon.stl",
+    "src/models/stl/hardware/HARDWARE_Alignment_Pin_Socket.stl",
+    "src/models/stl/hardware/HARDWARE_Roof_Spigot_Socket.stl",
+    "src/models/stl/hardware/HARDWARE_Wall_Key.stl"
   ],
   "objects": 34,
   "invalid_solids": [],

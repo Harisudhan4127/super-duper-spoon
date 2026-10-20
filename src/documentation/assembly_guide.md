@@ -25,7 +25,8 @@ and the **cut-away core** (1:320). Both use the same parts language.
 | Alignment pin / socket | `alignment_hardware.step` | ⌀2.0 mm dowel and its ⌀2.6 mm sleeve |
 | Roof spigot / socket | `roof_interface.step` | ⌀6.0 mm spigot for the removable roof |
 | Wall key | `wall_key.step` | 4 × 2.8 × 8 mm flat key |
-| Fit-test coupon | `fit_test_coupon.step` | 20 × 20 × 6 mm block with a dowel hole and a loose dowel |
+| Fit-test coupon | `fit_test_coupon.step`, `src/models/stl/hardware/FITTEST_Coupon.stl` | 20 × 20 × 6 mm block with a dowel hole and a loose dowel |
+| Printable hardware | `src/models/stl/hardware/*.stl` | the alignment pin/socket, the roof spigot/socket and the wall key, ready to slice |
 | Combined | `brihadisvara_engineering_all.step` | every engineering part in one file |
 
 ## 2. Assembly sequence — modular exterior

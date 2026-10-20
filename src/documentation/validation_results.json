@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T04:24:31+00:00",
+  "generated_at": "2026-10-20T04:25:54+00:00",
   "reports": [
     {
       "name": "brihadisvara_cutaway.stl",
@@ -340,6 +340,138 @@
       "notes": [
         "24 open edges (expected for assemblies and sectioned models)"
       ],
+      "status": "pass"
+    },
+    {
+      "name": "FITTEST_Coupon.stl",
+      "path": "src/models/stl/hardware/FITTEST_Coupon.stl",
+      "exists": true,
+      "bytes": 34084,
+      "triangles": 680,
+      "bounds_mm": [
+        0.0,
+        0.0,
+        0.0,
+        20.0,
+        20.0,
+        6.0
+      ],
+      "size_mm": [
+        20.0,
+        20.0,
+        6.0
+      ],
+      "degenerate_triangles": 0,
+      "zero_area_ratio": 0.0,
+      "open_edges": 0,
+      "non_manifold_edges": 0,
+      "duplicate_vertices": 1696,
+      "connected_components": 0,
+      "self_intersections": null,
+      "watertight": null,
+      "fits_build_volume": true,
+      "base_flat": true,
+      "thin_feature_ratio": null,
+      "notes": [],
+      "status": "pass"
+    },
+    {
+      "name": "HARDWARE_Alignment_Pin_Socket.stl",
+      "path": "src/models/stl/hardware/HARDWARE_Alignment_Pin_Socket.stl",
+      "exists": true,
+      "bytes": 67084,
+      "triangles": 1340,
+      "bounds_mm": [
+        -2.5,
+        -2.5,
+        0.0,
+        2.5,
+        2.5,
+        7.0
+      ],
+      "size_mm": [
+        5.0,
+        5.0,
+        7.0
+      ],
+      "degenerate_triangles": 0,
+      "zero_area_ratio": 0.0,
+      "open_edges": 0,
+      "non_manifold_edges": 0,
+      "duplicate_vertices": 3348,
+      "connected_components": 0,
+      "self_intersections": null,
+      "watertight": null,
+      "fits_build_volume": true,
+      "base_flat": true,
+      "thin_feature_ratio": null,
+      "notes": [],
+      "status": "pass"
+    },
+    {
+      "name": "HARDWARE_Roof_Spigot_Socket.stl",
+      "path": "src/models/stl/hardware/HARDWARE_Roof_Spigot_Socket.stl",
+      "exists": true,
+      "bytes": 50284,
+      "triangles": 1004,
+      "bounds_mm": [
+        -3.3,
+        -3.3,
+        0.0,
+        3.3,
+        3.3,
+        3.3
+      ],
+      "size_mm": [
+        6.6,
+        6.6,
+        3.3
+      ],
+      "degenerate_triangles": 0,
+      "zero_area_ratio": 0.0,
+      "open_edges": 0,
+      "non_manifold_edges": 84,
+      "duplicate_vertices": 2592,
+      "connected_components": 0,
+      "self_intersections": null,
+      "watertight": null,
+      "fits_build_volume": true,
+      "base_flat": true,
+      "thin_feature_ratio": null,
+      "notes": [],
+      "status": "pass"
+    },
+    {
+      "name": "HARDWARE_Wall_Key.stl",
+      "path": "src/models/stl/hardware/HARDWARE_Wall_Key.stl",
+      "exists": true,
+      "bytes": 684,
+      "triangles": 12,
+      "bounds_mm": [
+        0.0,
+        0.0,
+        0.0,
+        8.0,
+        4.0,
+        2.6
+      ],
+      "size_mm": [
+        8.0,
+        4.0,
+        2.6
+      ],
+      "degenerate_triangles": 0,
+      "zero_area_ratio": 0.0,
+      "open_edges": 0,
+      "non_manifold_edges": 0,
+      "duplicate_vertices": 28,
+      "connected_components": 0,
+      "self_intersections": null,
+      "watertight": null,
+      "fits_build_volume": true,
+      "base_flat": true,
+      "thin_feature_ratio": null,
+      "notes": [],
       "status": "pass"
     }
   ]
