@@ -84,8 +84,24 @@ executed in console mode:
 flatpak run --command=FreeCADCmd org.freecad.FreeCAD -c script.py
 ```
 
-Verified capability is recorded in `src/documentation/environment_audit.md` §4.1
-(filled in after the first successful console run).
+Verified capability:
+
+```
+flatpak run --command=FreeCADCmd org.freecad.FreeCAD -c "import FreeCAD; print(FreeCAD.Version())"
+  → ['1', '1', '4', '45039 (Git)', 'https://github.com/FreeCAD/FreeCAD.git',
+     '2026/09/28 13:46:34', '(HEAD detached at 1.1.4)', '4fd3bf320d9566...']
+
+flatpak run --command=FreeCADCmd org.freecad.FreeCAD <script.py>
+  → runs the script, builds the document, writes the .FCStd and the STEP files
+  → a new document with a Part::Box recomputes to Volume = 1000.0 and
+    Shape.isValid() = True
+```
+
+* Console (script) mode works; no GUI is required.
+* `Part` primitives, booleans, a `Spreadsheet::Sheet` with aliases and the
+  `Import` (STEP) exporter are all available.
+* The same filesystem override is required as for Blender, otherwise the
+  sandbox cannot see the repository.
 
 ## 5. Rendering
 
@@ -122,6 +138,16 @@ printer-specific compatibility is claimed.
 | numpy (system) | `.venv` in repo (git-ignored) | validation helpers only; not required for core pipeline |
 | slicer | none available | slicing is out of scope; print orientation/clearance guidance is documented instead |
 | trimesh | optional in `.venv` | secondary checks degrade gracefully when absent |
+
+### 4.1 One host filesystem limitation
+
+The repository lives on a removable exFAT-style volume. During the session a
+file entry became unreadable (`stat` returns `EINVAL`); the name
+`src/scripts/generate_cad.py` can neither be written, read nor removed, and
+Git refuses to `add` it. The FreeCAD generator was therefore written to
+`src/scripts/cad/generate_cad.py`, which is functionally equivalent. The
+stale entry stays invisible to `git status` and to every script in the
+repository, but `git add -A` fails on it — stage files explicitly instead.
 
 ## 9. Documentation and network
 
