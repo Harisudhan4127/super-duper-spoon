@@ -126,6 +126,35 @@ class TestTempleBuilder(unittest.TestCase):
             mb = getattr(self.builder, name)()
             self.assertGreater(len(mb.faces), 0, f"{name} produced no faces")
 
+    def test_generation_is_deterministic(self):
+        """Two builds of the same component must be bit-identical."""
+        first = TempleBuilder(BuildOptions(scale=1.0)).build_vimana()
+        second = TempleBuilder(BuildOptions(scale=1.0)).build_vimana()
+        self.assertEqual(first.verts, second.verts)
+        self.assertEqual(first.faces, second.faces)
+
+    def test_scale_changes_only_the_numbers_not_the_shape(self):
+        small = TempleBuilder(BuildOptions(scale=1.0)).build_nandi()
+        large = TempleBuilder(BuildOptions(scale=3.125)).build_nandi()
+        self.assertEqual(len(small.verts), len(large.verts))
+        ratio = large.verts[0][0] / small.verts[0][0] if small.verts[0][0] else 0
+        self.assertAlmostEqual(ratio, 3.125, places=4)
+
+    def test_walls_are_placed_at_the_correct_scale(self):
+        """A wall must span its hall, not a millimetre-scaled fraction of it."""
+        builder = TempleBuilder(BuildOptions(scale=1.0))
+        mb = builder.build_maha_mandapa()
+        plan = __import__("temple_params").plan_positions(PARAMS)
+        wall_y = PARAMS.maha_mandapa_y / 2 - PARAMS.ambulatory_wall_thickness / 2
+        wall_faces = [
+            polygon for polygon in mb.faces
+            if all(abs(vert[1] - wall_y) < 0.6 for vert in (mb.verts[i] for i in polygon))
+        ]
+        self.assertTrue(wall_faces, "the north wall of the maha-mandapa is missing")
+        xs = [mb.verts[i][0] for polygon in wall_faces for i in polygon]
+        self.assertAlmostEqual(min(xs), plan["maha_x0"], delta=1.0)
+        self.assertAlmostEqual(max(xs), plan["maha_x1"], delta=1.0)
+
 
 if __name__ == "__main__":
     unittest.main()
