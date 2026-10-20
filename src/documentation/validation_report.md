@@ -1,6 +1,6 @@
 # Mesh Validation Report
 
-Generated: 2026-10-20T04:07:21+00:00
+Generated: 2026-10-20T04:18:53+00:00
 
 ## Tooling actually used
 
@@ -13,7 +13,8 @@ Generated: 2026-10-20T04:07:21+00:00
 
 | Model | Status | Triangles | Size X x Y x Z (mm) | Fits bed | Degenerate | Open edges |
 |---|---|---|---|---|---|---|
-| `brihadisvara_cutaway.stl` | warn | 9763 | 227.5 x 51.2 x 205.8 | yes | 269 | 66 |
+| `brihadisvara_cutaway.stl` | warn | 7355 | 227.5 x 51.2 x 205.8 | yes | 50 | 62 |
+| `brihadisvara_cutaway_roof.stl` | pass | 190 | 140.9 x 24.5 x 11.6 | yes | 0 | 0 |
 | `brihadisvara_exterior.stl` | pass | 15834 | 242.8 x 123.9 x 67.0 | yes | 0 | 76 |
 | `MOD_01_Foundation_West.stl` | pass | 24 | 101.0 x 123.9 x 1.6 | yes | 0 | 0 |
 | `MOD_02_Foundation_East.stl` | pass | 24 | 141.8 x 123.9 x 1.6 | yes | 0 | 0 |
@@ -28,21 +29,38 @@ Generated: 2026-10-20T04:07:21+00:00
 ### `brihadisvara_cutaway.stl`
 
 * Path: `src/models/stl/brihadisvara_cutaway.stl`
-* File size: 488234 bytes
+* File size: 367834 bytes
 * Bounding box (min x, min y, min z, max x, max y, max z): [-51.219, 0.0, 0.0, 176.25, 51.219, 205.75] mm
 * Bounding size: [227.469, 51.219, 205.75] mm
-* Triangles: 9763
-* Degenerate (zero area) triangles: 269
-* Duplicate vertices (after welding): 25565
-* Open edges: 66
-* Non-manifold edges (>2 faces): 2560
+* Triangles: 7355
+* Degenerate (zero area) triangles: 50
+* Duplicate vertices (after welding): 18617
+* Open edges: 62
+* Non-manifold edges (>2 faces): 1036
 * Connected components: not evaluated
 * Watertight: not evaluated
 * Self intersections: not evaluated
 * Fits the assumed build volume: True
 * Flat contact base: True
-* Note: 269 degenerate triangles
-* Note: 66 open edges (expected for assemblies and sectioned models)
+* Note: 50 degenerate triangles
+* Note: 62 open edges (expected for assemblies and sectioned models)
+
+### `brihadisvara_cutaway_roof.stl`
+
+* Path: `src/models/stl/brihadisvara_cutaway_roof.stl`
+* File size: 9584 bytes
+* Bounding box (min x, min y, min z, max x, max y, max z): [25.781, 0.0, 29.688, 166.719, 24.531, 41.25] mm
+* Bounding size: [140.938, 24.531, 11.562] mm
+* Triangles: 190
+* Degenerate (zero area) triangles: 0
+* Duplicate vertices (after welding): 471
+* Open edges: 0
+* Non-manifold edges (>2 faces): 0
+* Connected components: not evaluated
+* Watertight: not evaluated
+* Self intersections: not evaluated
+* Fits the assumed build volume: True
+* Flat contact base: True
 
 ### `brihadisvara_exterior.stl`
 

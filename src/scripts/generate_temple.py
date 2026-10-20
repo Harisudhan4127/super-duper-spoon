@@ -171,6 +171,7 @@ def build_cutaway_components(options: tb.BuildOptions) -> dict[str, object]:
         "Nandi_Bull": builder.build_nandi(),
         "Main_Vimana": builder.build_vimana(),
         "Temple_Steps": builder.build_stairs(),
+        "Roof_Section": builder.build_hall_roofs(),
     }
     return components
 
@@ -193,6 +194,7 @@ COLLECTION_OF = {
     "Amman_Shrine": "08_ARCHITECTURAL_DETAILS",
     "Murugan_Shrine": "08_ARCHITECTURAL_DETAILS",
     "Temple_Steps": "08_ARCHITECTURAL_DETAILS",
+    "Roof_Section": "09_PRINT_ASSEMBLY",
 }
 
 
@@ -201,19 +203,22 @@ def apply_section_cut(objects: list[bpy.types.Object], cut_y: float) -> None:
     bpy.ops.object.select_all(action="DESELECT")
     cutter = bpy.data.meshes.new("SectionCutter_mesh")
     size = 4000.0
+    x0, x1 = -size, size
+    y0, y1 = -size, cut_y
+    z0, z1 = -size, size
+    # outward facing winding: an inverted cutter makes the boolean solver
+    # subtract the wrong half of the model
     verts = [
-        (-size, -size, -size),
-        (size, -size, -size),
-        (size, cut_y, -size),
-        (-size, cut_y, -size),
-        (-size, -size, size),
-        (size, -size, size),
-        (size, cut_y, size),
-        (-size, cut_y, size),
+        (x0, y0, z0), (x1, y0, z0), (x1, y1, z0), (x0, y1, z0),
+        (x0, y0, z1), (x1, y0, z1), (x1, y1, z1), (x0, y1, z1),
     ]
     faces = [
-        [0, 1, 2, 3], [4, 5, 6, 7], [0, 1, 5, 4],
-        [1, 2, 6, 5], [2, 3, 7, 6], [3, 0, 4, 7],
+        [0, 3, 2, 1],   # bottom (-Z)
+        [4, 5, 6, 7],   # top (+Z)
+        [0, 1, 5, 4],   # -Y
+        [1, 2, 6, 5],   # +X
+        [2, 3, 7, 6],   # +Y
+        [3, 0, 4, 7],   # -X
     ]
     cutter.from_pydata(verts, [], faces)
     cutter.validate()
@@ -229,9 +234,8 @@ def apply_section_cut(objects: list[bpy.types.Object], cut_y: float) -> None:
         modifier.operation = "DIFFERENCE"
         modifier.object = cutter_obj
         modifier.solver = "EXACT"
-        for flag in ("use_self", "use_hole_tolerant"):
-            if hasattr(modifier, flag):
-                setattr(modifier, flag, True)
+        if hasattr(modifier, "use_self"):
+            modifier.use_self = True
         bpy.ops.object.modifier_apply(modifier=modifier.name)
 
     bpy.data.objects.remove(cutter_obj, do_unlink=True)
@@ -509,6 +513,13 @@ def generate_cutaway(args) -> dict:
     blend_path = BLEND_DIR / "brihadisvara_cutaway.blend"
     stl_path = STL_DIR / "brihadisvara_cutaway.stl"
     export_stl(objects, stl_path)
+
+    # the removable roof section is also exported on its own
+    roof_path = STL_DIR / "brihadisvara_cutaway_roof.stl"
+    roof_objects = [obj for obj in objects if obj.name == "Roof_Section"]
+    if roof_objects:
+        export_stl(roof_objects, roof_path)
+
     bpy.ops.wm.save_as_mainfile(filepath=str(blend_path))
 
     return {
@@ -516,6 +527,7 @@ def generate_cutaway(args) -> dict:
         "scale": options.scale,
         "blend": str(blend_path.relative_to(PROJECT_ROOT)),
         "stl": str(stl_path.relative_to(PROJECT_ROOT)),
+        "removable_roof": str(roof_path.relative_to(PROJECT_ROOT)) if roof_objects else None,
         "previews": previews,
         "stats": object_stats(objects),
     }

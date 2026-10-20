@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-20T04:07:21+00:00",
+  "generated_at": "2026-10-20T04:18:53+00:00",
   "reports": [
     {
       "name": "brihadisvara_cutaway.stl",
       "path": "src/models/stl/brihadisvara_cutaway.stl",
       "exists": true,
-      "bytes": 488234,
-      "triangles": 9763,
+      "bytes": 367834,
+      "triangles": 7355,
       "bounds_mm": [
         -51.219,
         0.0,
@@ -20,11 +20,11 @@
         51.219,
         205.75
       ],
-      "degenerate_triangles": 269,
-      "zero_area_ratio": 0.027553,
-      "open_edges": 66,
-      "non_manifold_edges": 2560,
-      "duplicate_vertices": 25565,
+      "degenerate_triangles": 50,
+      "zero_area_ratio": 0.006798,
+      "open_edges": 62,
+      "non_manifold_edges": 1036,
+      "duplicate_vertices": 18617,
       "connected_components": 0,
       "self_intersections": null,
       "watertight": null,
@@ -32,10 +32,43 @@
       "base_flat": true,
       "thin_feature_ratio": null,
       "notes": [
-        "269 degenerate triangles",
-        "66 open edges (expected for assemblies and sectioned models)"
+        "50 degenerate triangles",
+        "62 open edges (expected for assemblies and sectioned models)"
       ],
       "status": "warn"
+    },
+    {
+      "name": "brihadisvara_cutaway_roof.stl",
+      "path": "src/models/stl/brihadisvara_cutaway_roof.stl",
+      "exists": true,
+      "bytes": 9584,
+      "triangles": 190,
+      "bounds_mm": [
+        25.781,
+        0.0,
+        29.688,
+        166.719,
+        24.531,
+        41.25
+      ],
+      "size_mm": [
+        140.938,
+        24.531,
+        11.562
+      ],
+      "degenerate_triangles": 0,
+      "zero_area_ratio": 0.0,
+      "open_edges": 0,
+      "non_manifold_edges": 0,
+      "duplicate_vertices": 471,
+      "connected_components": 0,
+      "self_intersections": null,
+      "watertight": null,
+      "fits_build_volume": true,
+      "base_flat": true,
+      "thin_feature_ratio": null,
+      "notes": [],
+      "status": "pass"
     },
     {
       "name": "brihadisvara_exterior.stl",

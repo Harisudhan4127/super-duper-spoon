@@ -76,6 +76,33 @@ class TempleBuilder:
         """Same as :meth:`amp` but returns the value back in real metres."""
         return self.amp(metres, minimum_mm) / self.k
 
+    def wall(
+        self,
+        mb: MeshBuilder,
+        axis: str,
+        start: float,
+        end: float,
+        thickness: float,
+        z0: float,
+        z1: float,
+        openings: tuple = (),
+        offset: float = 0.0,
+    ) -> None:
+        """Add a wall given in **real metres**; converted to model millimetres.
+
+        ``openings`` are ``(u0, u1, v0, v1)`` tuples, also in real metres.
+        """
+        mb.add_wall_with_openings(
+            axis,
+            self.m(start),
+            self.m(end),
+            self.m(thickness),
+            self.m(z0),
+            self.m(z1),
+            openings=[(self.m(u0), self.m(u1), self.m(v0), self.m(v1)) for u0, u1, v0, v1 in openings],
+            offset=self.m(offset),
+        )
+
     # ================================================================== #
     # 01 - ground plate and courtyard floor
     # ================================================================== #
@@ -466,13 +493,14 @@ class TempleBuilder:
         door_h = 4.2
         for face in range(4):
             if face == 2:  # +X (east) wall with the entrance
-                mb.add_wall_with_openings(
+                self.wall(
+                    mb,
                     "y",
                     -half_s,
                     half_s,
                     wall_t,
-                    self.m(z0),
-                    self.m(z1),
+                    z0,
+                    z1,
                     openings=[(-door_w / 2, door_w / 2, z0, z0 + door_h)],
                     offset=half_s - wall_t / 2,
                 )
@@ -483,21 +511,20 @@ class TempleBuilder:
                     axis, start, end, offset = "x", -half_s, half_s, -half_s + wall_t / 2
                 else:
                     axis, start, end, offset = "y", -half_s, half_s, -half_s + wall_t / 2
-                mb.add_wall_with_openings(
-                    axis, start, end, wall_t, self.m(z0), self.m(z1), offset=offset
-                )
+                self.wall(mb, axis, start, end, wall_t, z0, z1, offset=offset)
 
         # ambulatory outer wall (pradakshina patha)
         outer_t = p.ambulatory_wall_thickness
         for face in range(4):
             if face == 2:
-                mb.add_wall_with_openings(
+                self.wall(
+                    mb,
                     "y",
                     -half_a,
                     half_a,
                     outer_t,
-                    self.m(z0),
-                    self.m(z1),
+                    z0,
+                    z1,
                     openings=[(-2.4, 2.4, z0, z0 + 4.6)],
                     offset=half_a - outer_t / 2,
                 )
@@ -508,9 +535,7 @@ class TempleBuilder:
                     axis, start, end, offset = "x", -half_a, half_a, -half_a + outer_t / 2
                 else:
                     axis, start, end, offset = "y", -half_a, half_a, -half_a + outer_t / 2
-                mb.add_wall_with_openings(
-                    axis, start, end, outer_t, self.m(z0), self.m(z1), offset=offset
-                )
+                self.wall(mb, axis, start, end, outer_t, z0, z1, offset=offset)
 
         # floor of the cella and of the ambulatory passage
         mb.add_box(
@@ -563,10 +588,7 @@ class TempleBuilder:
             self.m(z0 - 0.1), self.m(z0 + 0.05),
         )
         for sign in (-1, 1):
-            mb.add_wall_with_openings(
-                "x", x0, x1, t, self.m(z0), self.m(z1),
-                offset=sign * (half_w - t / 2),
-            )
+            self.wall(mb, "x", x0, x1, t, z0, z1, offset=sign * (half_w - t / 2))
         mb.add_box(
             self.m(x0), self.m(-half_w), self.m(x1), self.m(half_w),
             self.m(z1), self.m(z1 + 0.5),
@@ -586,6 +608,7 @@ class TempleBuilder:
         wall_height: float,
         pillars_per_side: int,
         z0: float,
+        with_roof: bool = True,
     ) -> MeshBuilder:
         """A square pillared hall with a corniced roof (mandapa)."""
         mb = MeshBuilder()
@@ -598,19 +621,13 @@ class TempleBuilder:
         mb.add_box(self.m(x0), self.m(y0), self.m(x1), self.m(y1), self.m(z0 - 0.1), self.m(z0 + 0.05))
 
         # enclosure walls with a doorway on the axis
-        mb.add_wall_with_openings(
-            "y", y0, y1, wall_t, self.m(z0), self.m(z0 + wall_height),
+        self.wall(
+            mb, "y", y0, y1, wall_t, z0, z0 + wall_height,
             openings=[(-door_w / 2, door_w / 2, z0, z0 + door_h)], offset=x1 - wall_t / 2,
         )
-        mb.add_wall_with_openings(
-            "y", y0, y1, wall_t, self.m(z0), self.m(z0 + wall_height), offset=x0 + wall_t / 2,
-        )
-        mb.add_wall_with_openings(
-            "x", x0, x1, wall_t, self.m(z0), self.m(z0 + wall_height), offset=y0 + wall_t / 2,
-        )
-        mb.add_wall_with_openings(
-            "x", x0, x1, wall_t, self.m(z0), self.m(z0 + wall_height), offset=y1 - wall_t / 2,
-        )
+        self.wall(mb, "y", y0, y1, wall_t, z0, z0 + wall_height, offset=x0 + wall_t / 2)
+        self.wall(mb, "x", x0, x1, wall_t, z0, z0 + wall_height, offset=y0 + wall_t / 2)
+        self.wall(mb, "x", x0, x1, wall_t, z0, z0 + wall_height, offset=y1 - wall_t / 2)
 
         # internal colonnade
         for axis, start, end, fixed in (
@@ -625,7 +642,8 @@ class TempleBuilder:
             self._add_pillar_row(mb, axis, start, end, fixed, z0, wall_height)
 
         # roof: stepped Dravidian profile with a cornice
-        self._add_hall_roof(mb, x0, x1, y0, y1, z0 + wall_height)
+        if with_roof:
+            self._add_hall_roof(mb, x0, x1, y0, y1, z0 + wall_height)
         return mb
 
     def _add_pillar_row(
@@ -714,6 +732,24 @@ class TempleBuilder:
                 self.m(z + corn_h + 2 * course_h), self.m(z + corn_h + 2 * course_h + course_h),
             )
 
+    def build_hall_roofs(self) -> MeshBuilder:
+        """The removable roof section of the three halls.
+
+        The cut-away model keeps the roofs as a separate part so that the
+        interior can be opened; the piece is located by the spigot and socket
+        described in ``src/documentation/print_settings.md``.
+        """
+        mb = MeshBuilder()
+        p = self.p
+        plan = self.plan
+        for x0, x1, half_y, height in (
+            (plan["maha_x0"], plan["maha_x1"], p.maha_mandapa_y / 2, p.maha_mandapa_wall_height),
+            (plan["mukha_x0"], plan["mukha_x1"], p.mukha_mandapa_y / 2, p.mukha_mandapa_wall_height),
+            (plan["nandi_x0"], plan["nandi_x1"], p.nandi_mandapa_y / 2, p.nandi_mandapa_wall_height),
+        ):
+            self._add_hall_roof(mb, x0, x1, -half_y, half_y, p.platform_height + height)
+        return mb
+
     def build_maha_mandapa(self) -> MeshBuilder:
         p = self.p
         plan = self.plan
@@ -726,6 +762,7 @@ class TempleBuilder:
             p.maha_mandapa_wall_height,
             p.maha_mandapa_pillars_per_side,
             p.platform_height,
+            with_roof=not self.options.cutaway,
         )
 
     def build_mukha_mandapa(self) -> MeshBuilder:
@@ -740,6 +777,7 @@ class TempleBuilder:
             p.mukha_mandapa_wall_height,
             p.mukha_mandapa_pillars_per_side,
             p.platform_height,
+            with_roof=not self.options.cutaway,
         )
 
     def build_nandi_mandapa(self) -> MeshBuilder:
@@ -754,6 +792,7 @@ class TempleBuilder:
             p.nandi_mandapa_wall_height,
             4,
             p.platform_height,
+            with_roof=not self.options.cutaway,
         )
 
     # ================================================================== #
@@ -968,15 +1007,12 @@ class TempleBuilder:
 
         # south and north walls (running along X)
         for y in (y0 + t / 2, y1 - t / 2):
-            mb.add_wall_with_openings(
-                "x", x0, x1, t, self.m(0.0), self.m(h),
-                offset=y,
-            )
+            self.wall(mb, "x", x0, x1, t, 0.0, h, offset=y)
         # west wall
-        mb.add_wall_with_openings("y", y0, y1, t, self.m(0.0), self.m(h), offset=x0 + t / 2)
+        self.wall(mb, "y", y0, y1, t, 0.0, h, offset=x0 + t / 2)
         # east wall with the main gateway opening
-        mb.add_wall_with_openings(
-            "y", y0, y1, t, self.m(0.0), self.m(h),
+        self.wall(
+            mb, "y", y0, y1, t, 0.0, h,
             openings=[(-gate_w / 2, gate_w / 2, 0.0, gate_h)],
             offset=x1 - t / 2,
         )
