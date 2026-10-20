@@ -1,0 +1,271 @@
+{
+  "generated_at": "2026-10-20T04:02:49+00:00",
+  "units": "millimetres",
+  "coordinate_system": "X = east-west, Y = north-south, Z = up, Z=0 at the base plate underside",
+  "variants": {
+    "exterior": {
+      "scale_mm_per_metre": 1.0,
+      "scale_note": "1:1000 master model (1 mm of model = 1 m of building)",
+      "source_project": "src/models/blender/brihadisvara_exterior.blend",
+      "exports": [
+        {
+          "path": "src/models/stl/brihadisvara_exterior.stl",
+          "bytes": 791784,
+          "triangles": 15834,
+          "size_mm": [
+            242.79,
+            123.92,
+            67.04
+          ],
+          "bounds_mm": [
+            -46.0,
+            -61.96,
+            -1.2,
+            196.79,
+            61.96,
+            65.84
+          ],
+          "validation": "pass"
+        }
+      ],
+      "blend": {
+        "path": "src/models/blender/brihadisvara_exterior.blend",
+        "bytes": 235913
+      }
+    },
+    "cutaway": {
+      "scale_mm_per_metre": 3.125,
+      "scale_note": "1:320 detail model with the southern half sectioned away",
+      "source_project": "src/models/blender/brihadisvara_cutaway.blend",
+      "exports": [
+        {
+          "path": "src/models/stl/brihadisvara_cutaway.stl",
+          "bytes": 488234,
+          "triangles": 9763,
+          "size_mm": [
+            227.469,
+            51.219,
+            205.75
+          ],
+          "bounds_mm": [
+            -51.219,
+            0.0,
+            0.0,
+            176.25,
+            51.219,
+            205.75
+          ],
+          "validation": "warn"
+        }
+      ],
+      "blend": {
+        "path": "src/models/blender/brihadisvara_cutaway.blend",
+        "bytes": 191448
+      }
+    },
+    "modular": {
+      "scale_mm_per_metre": 1.0,
+      "scale_note": "1:1000 master model split into printable modules",
+      "source_project": "src/models/blender/brihadisvara_modular.blend",
+      "exports": [
+        {
+          "path": "src/models/stl/modules/MOD_01_Foundation_West.stl",
+          "bytes": 1284,
+          "triangles": 24,
+          "size_mm": [
+            101.0,
+            123.92,
+            1.6
+          ],
+          "bounds_mm": [
+            -46.0,
+            -61.96,
+            -1.2,
+            55.0,
+            61.96,
+            0.4
+          ],
+          "validation": "pass"
+        },
+        {
+          "path": "src/models/stl/modules/MOD_02_Foundation_East.stl",
+          "bytes": 1284,
+          "triangles": 24,
+          "size_mm": [
+            141.79,
+            123.92,
+            1.6
+          ],
+          "bounds_mm": [
+            55.0,
+            -61.96,
+            -1.2,
+            196.79,
+            61.96,
+            0.4
+          ],
+          "validation": "pass"
+        },
+        {
+          "path": "src/models/stl/modules/MOD_03_Temple_Block.stl",
+          "bytes": 496784,
+          "triangles": 9934,
+          "size_mm": [
+            72.79,
+            32.78,
+            65.84
+          ],
+          "bounds_mm": [
+            -16.39,
+            -16.39,
+            0.0,
+            56.4,
+            16.39,
+            65.84
+          ],
+          "validation": "pass"
+        },
+        {
+          "path": "src/models/stl/modules/MOD_04_Gopurams.stl",
+          "bytes": 70084,
+          "triangles": 1400,
+          "size_mm": [
+            88.5,
+            14.0,
+            31.2
+          ],
+          "bounds_mm": [
+            94.5,
+            -7.0,
+            0.4,
+            183.0,
+            7.0,
+            31.6
+          ],
+          "validation": "pass"
+        },
+        {
+          "path": "src/models/stl/modules/MOD_05_Compound_Wall.stl",
+          "bytes": 3084,
+          "triangles": 60,
+          "size_mm": [
+            240.79,
+            121.92,
+            3.5
+          ],
+          "bounds_mm": [
+            -45.0,
+            -60.96,
+            0.0,
+            195.79,
+            60.96,
+            3.5
+          ],
+          "validation": "pass"
+        },
+        {
+          "path": "src/models/stl/modules/MOD_06_Prakara.stl",
+          "bytes": 208884,
+          "triangles": 4176,
+          "size_mm": [
+            174.228,
+            80.8,
+            4.8
+          ],
+          "bounds_mm": [
+            -33.428,
+            -40.0,
+            0.0,
+            140.8,
+            40.8,
+            4.8
+          ],
+          "validation": "pass"
+        },
+        {
+          "path": "src/models/stl/modules/MOD_07_Courtyard_Shrines.stl",
+          "bytes": 12084,
+          "triangles": 240,
+          "size_mm": [
+            8.0,
+            35.5,
+            9.0
+          ],
+          "bounds_mm": [
+            68.0,
+            -18.0,
+            0.4,
+            76.0,
+            17.5,
+            9.4
+          ],
+          "validation": "pass"
+        }
+      ],
+      "blend": {
+        "path": "src/models/blender/brihadisvara_modular.blend",
+        "bytes": 236438
+      }
+    }
+  },
+  "step_exports": [
+    {
+      "path": "src/models/step/alignment_hardware.step",
+      "bytes": 11918
+    },
+    {
+      "path": "src/models/step/brihadisvara_engineering_all.step",
+      "bytes": 54689
+    },
+    {
+      "path": "src/models/step/fit_test_coupon.step",
+      "bytes": 13722
+    },
+    {
+      "path": "src/models/step/foundation_plates.step",
+      "bytes": 15642
+    },
+    {
+      "path": "src/models/step/roof_interface.step",
+      "bytes": 10160
+    },
+    {
+      "path": "src/models/step/wall_key.step",
+      "bytes": 6797
+    }
+  ],
+  "previews": [
+    {
+      "path": "src/previews/brihadisvara_cutaway_aerial.png",
+      "bytes": 1508763
+    },
+    {
+      "path": "src/previews/brihadisvara_cutaway_front_elevation.png",
+      "bytes": 1476931
+    },
+    {
+      "path": "src/previews/brihadisvara_cutaway_side_elevation.png",
+      "bytes": 1497275
+    },
+    {
+      "path": "src/previews/brihadisvara_cutaway_three_quarter.png",
+      "bytes": 1541605
+    },
+    {
+      "path": "src/previews/brihadisvara_exterior_aerial.png",
+      "bytes": 1546416
+    },
+    {
+      "path": "src/previews/brihadisvara_exterior_front_elevation.png",
+      "bytes": 1488702
+    },
+    {
+      "path": "src/previews/brihadisvara_exterior_side_elevation.png",
+      "bytes": 1486142
+    },
+    {
+      "path": "src/previews/brihadisvara_exterior_three_quarter.png",
+      "bytes": 1520892
+    }
+  ]
+}

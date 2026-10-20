@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-10-20T04:02:49+00:00",
+  "blender": "5.2.0 LTS",
+  "duration_seconds": 0.2,
+  "results": {
+    "modular": {
+      "variant": "modular",
+      "scale": 1.0,
+      "blend": "src/models/blender/brihadisvara_modular.blend",
+      "modules": [
+        "src/models/stl/modules/MOD_01_Foundation_West.stl",
+        "src/models/stl/modules/MOD_02_Foundation_East.stl",
+        "src/models/stl/modules/MOD_03_Temple_Block.stl",
+        "src/models/stl/modules/MOD_04_Gopurams.stl",
+        "src/models/stl/modules/MOD_05_Compound_Wall.stl",
+        "src/models/stl/modules/MOD_06_Prakara.stl",
+        "src/models/stl/modules/MOD_07_Courtyard_Shrines.stl"
+      ],
+      "stats": {
+        "objects": 15,
+        "vertices": 10319,
+        "polygons": 7913
+      }
+    }
+  }
+}

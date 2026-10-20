@@ -1,0 +1,313 @@
+{
+  "generated_at": "2026-10-20T04:07:21+00:00",
+  "reports": [
+    {
+      "name": "brihadisvara_cutaway.stl",
+      "path": "src/models/stl/brihadisvara_cutaway.stl",
+      "exists": true,
+      "bytes": 488234,
+      "triangles": 9763,
+      "bounds_mm": [
+        -51.219,
+        0.0,
+        0.0,
+        176.25,
+        51.219,
+        205.75
+      ],
+      "size_mm": [
+        227.469,
+        51.219,
+        205.75
+      ],
+      "degenerate_triangles": 269,
+      "zero_area_ratio": 0.027553,
+      "open_edges": 66,
+      "non_manifold_edges": 2560,
+      "duplicate_vertices": 25565,
+      "connected_components": 0,
+      "self_intersections": null,
+      "watertight": null,
+      "fits_build_volume": true,
+      "base_flat": true,
+      "thin_feature_ratio": null,
+      "notes": [
+        "269 degenerate triangles",
+        "66 open edges (expected for assemblies and sectioned models)"
+      ],
+      "status": "warn"
+    },
+    {
+      "name": "brihadisvara_exterior.stl",
+      "path": "src/models/stl/brihadisvara_exterior.stl",
+      "exists": true,
+      "bytes": 791784,
+      "triangles": 15834,
+      "bounds_mm": [
+        -46.0,
+        -61.96,
+        -1.2,
+        196.79,
+        61.96,
+        65.84
+      ],
+      "size_mm": [
+        242.79,
+        123.92,
+        67.04
+      ],
+      "degenerate_triangles": 0,
+      "zero_area_ratio": 0.0,
+      "open_edges": 76,
+      "non_manifold_edges": 1135,
+      "duplicate_vertices": 37753,
+      "connected_components": 0,
+      "self_intersections": null,
+      "watertight": null,
+      "fits_build_volume": true,
+      "base_flat": true,
+      "thin_feature_ratio": null,
+      "notes": [
+        "76 open edges (expected for assemblies and sectioned models)"
+      ],
+      "status": "pass"
+    },
+    {
+      "name": "MOD_01_Foundation_West.stl",
+      "path": "src/models/stl/modules/MOD_01_Foundation_West.stl",
+      "exists": true,
+      "bytes": 1284,
+      "triangles": 24,
+      "bounds_mm": [
+        -46.0,
+        -61.96,
+        -1.2,
+        55.0,
+        61.96,
+        0.4
+      ],
+      "size_mm": [
+        101.0,
+        123.92,
+        1.6
+      ],
+      "degenerate_triangles": 0,
+      "zero_area_ratio": 0.0,
+      "open_edges": 0,
+      "non_manifold_edges": 0,
+      "duplicate_vertices": 56,
+      "connected_components": 0,
+      "self_intersections": null,
+      "watertight": null,
+      "fits_build_volume": true,
+      "base_flat": true,
+      "thin_feature_ratio": null,
+      "notes": [],
+      "status": "pass"
+    },
+    {
+      "name": "MOD_02_Foundation_East.stl",
+      "path": "src/models/stl/modules/MOD_02_Foundation_East.stl",
+      "exists": true,
+      "bytes": 1284,
+      "triangles": 24,
+      "bounds_mm": [
+        55.0,
+        -61.96,
+        -1.2,
+        196.79,
+        61.96,
+        0.4
+      ],
+      "size_mm": [
+        141.79,
+        123.92,
+        1.6
+      ],
+      "degenerate_triangles": 0,
+      "zero_area_ratio": 0.0,
+      "open_edges": 0,
+      "non_manifold_edges": 0,
+      "duplicate_vertices": 56,
+      "connected_components": 0,
+      "self_intersections": null,
+      "watertight": null,
+      "fits_build_volume": true,
+      "base_flat": true,
+      "thin_feature_ratio": null,
+      "notes": [],
+      "status": "pass"
+    },
+    {
+      "name": "MOD_03_Temple_Block.stl",
+      "path": "src/models/stl/modules/MOD_03_Temple_Block.stl",
+      "exists": true,
+      "bytes": 496784,
+      "triangles": 9934,
+      "bounds_mm": [
+        -16.39,
+        -16.39,
+        0.0,
+        56.4,
+        16.39,
+        65.84
+      ],
+      "size_mm": [
+        72.79,
+        32.78,
+        65.84
+      ],
+      "degenerate_triangles": 0,
+      "zero_area_ratio": 0.0,
+      "open_edges": 28,
+      "non_manifold_edges": 1128,
+      "duplicate_vertices": 23917,
+      "connected_components": 0,
+      "self_intersections": null,
+      "watertight": null,
+      "fits_build_volume": true,
+      "base_flat": true,
+      "thin_feature_ratio": null,
+      "notes": [
+        "28 open edges (expected for assemblies and sectioned models)"
+      ],
+      "status": "pass"
+    },
+    {
+      "name": "MOD_04_Gopurams.stl",
+      "path": "src/models/stl/modules/MOD_04_Gopurams.stl",
+      "exists": true,
+      "bytes": 70084,
+      "triangles": 1400,
+      "bounds_mm": [
+        94.5,
+        -7.0,
+        0.4,
+        183.0,
+        7.0,
+        31.6
+      ],
+      "size_mm": [
+        88.5,
+        14.0,
+        31.2
+      ],
+      "degenerate_triangles": 0,
+      "zero_area_ratio": 0.0,
+      "open_edges": 24,
+      "non_manifold_edges": 0,
+      "duplicate_vertices": 3310,
+      "connected_components": 0,
+      "self_intersections": null,
+      "watertight": null,
+      "fits_build_volume": true,
+      "base_flat": true,
+      "thin_feature_ratio": null,
+      "notes": [
+        "24 open edges (expected for assemblies and sectioned models)"
+      ],
+      "status": "pass"
+    },
+    {
+      "name": "MOD_05_Compound_Wall.stl",
+      "path": "src/models/stl/modules/MOD_05_Compound_Wall.stl",
+      "exists": true,
+      "bytes": 3084,
+      "triangles": 60,
+      "bounds_mm": [
+        -45.0,
+        -60.96,
+        0.0,
+        195.79,
+        60.96,
+        3.5
+      ],
+      "size_mm": [
+        240.79,
+        121.92,
+        3.5
+      ],
+      "degenerate_triangles": 0,
+      "zero_area_ratio": 0.0,
+      "open_edges": 0,
+      "non_manifold_edges": 4,
+      "duplicate_vertices": 148,
+      "connected_components": 0,
+      "self_intersections": null,
+      "watertight": null,
+      "fits_build_volume": true,
+      "base_flat": true,
+      "thin_feature_ratio": null,
+      "notes": [],
+      "status": "pass"
+    },
+    {
+      "name": "MOD_06_Prakara.stl",
+      "path": "src/models/stl/modules/MOD_06_Prakara.stl",
+      "exists": true,
+      "bytes": 208884,
+      "triangles": 4176,
+      "bounds_mm": [
+        -33.428,
+        -40.0,
+        0.0,
+        140.8,
+        40.8,
+        4.8
+      ],
+      "size_mm": [
+        174.228,
+        80.8,
+        4.8
+      ],
+      "degenerate_triangles": 0,
+      "zero_area_ratio": 0.0,
+      "open_edges": 0,
+      "non_manifold_edges": 0,
+      "duplicate_vertices": 9744,
+      "connected_components": 0,
+      "self_intersections": null,
+      "watertight": null,
+      "fits_build_volume": true,
+      "base_flat": true,
+      "thin_feature_ratio": null,
+      "notes": [],
+      "status": "pass"
+    },
+    {
+      "name": "MOD_07_Courtyard_Shrines.stl",
+      "path": "src/models/stl/modules/MOD_07_Courtyard_Shrines.stl",
+      "exists": true,
+      "bytes": 12084,
+      "triangles": 240,
+      "bounds_mm": [
+        68.0,
+        -18.0,
+        0.4,
+        76.0,
+        17.5,
+        9.4
+      ],
+      "size_mm": [
+        8.0,
+        35.5,
+        9.0
+      ],
+      "degenerate_triangles": 0,
+      "zero_area_ratio": 0.0,
+      "open_edges": 24,
+      "non_manifold_edges": 0,
+      "duplicate_vertices": 574,
+      "connected_components": 0,
+      "self_intersections": null,
+      "watertight": null,
+      "fits_build_volume": true,
+      "base_flat": true,
+      "thin_feature_ratio": null,
+      "notes": [
+        "24 open edges (expected for assemblies and sectioned models)"
+      ],
+      "status": "pass"
+    }
+  ]
+}
